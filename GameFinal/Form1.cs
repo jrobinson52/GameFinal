@@ -16,5 +16,24 @@ namespace GameFinal
         {
             InitializeComponent();
         }
+
+        private void pnlPlayer_Paint(object sender, PaintEventArgs e)
+        {
+            // positions are measured from the top left of the level panel
+            //initial location of player
+            pnlPlayer.Location = new Point(0, 416); //this is the top left corner of the player panel
+
+            
+
+
+            //game loop
+            while(true) //while we haven't won or died
+            {
+
+            }
+
+
+
+        }
     }
 }

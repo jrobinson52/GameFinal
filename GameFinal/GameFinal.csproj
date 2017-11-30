@@ -53,6 +53,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -74,6 +77,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Sprites\Bomb.png" />
+    <Content Include="Sprites\Boom.gif" />
+    <Content Include="Sprites\Booom.gif" />
+    <Content Include="Sprites\Bush.png" />
+    <Content Include="Sprites\Clouds.png" />
+    <Content Include="Sprites\Coin.png" />
+    <Content Include="Sprites\Enemy-left.png" />
+    <Content Include="Sprites\Enemy-right.png" />
+    <Content Include="Sprites\floor.png" />
+    <Content Include="Sprites\floor_square.png" />
+    <Content Include="Sprites\jump_l.png" />
+    <Content Include="Sprites\jump_r.png" />
+    <Content Include="Sprites\Pipe.png" />
+    <Content Include="Sprites\Platform.png" />
+    <Content Include="Sprites\Rocket_L.png" />
+    <Content Include="Sprites\Rocket_R.png" />
+    <Content Include="Sprites\stand_l.png" />
+    <Content Include="Sprites\stand_r.png" />
+    <Content Include="Sprites\walk_l.gif" />
+    <Content Include="Sprites\walk_r.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
