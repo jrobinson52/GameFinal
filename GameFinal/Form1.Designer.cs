@@ -49,6 +49,8 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblX = new System.Windows.Forms.Label();
+            this.lblY = new System.Windows.Forms.Label();
             this.pnlLevel.SuspendLayout();
             this.pnlPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxPlayer)).BeginInit();
@@ -107,10 +109,11 @@
             // 
             // pboxPlayer
             // 
+            this.pboxPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pboxPlayer.Image = ((System.Drawing.Image)(resources.GetObject("pboxPlayer.Image")));
-            this.pboxPlayer.Location = new System.Drawing.Point(0, 23);
+            this.pboxPlayer.Location = new System.Drawing.Point(0, 0);
             this.pboxPlayer.Name = "pboxPlayer";
-            this.pboxPlayer.Size = new System.Drawing.Size(68, 66);
+            this.pboxPlayer.Size = new System.Drawing.Size(68, 89);
             this.pboxPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxPlayer.TabIndex = 0;
             this.pboxPlayer.TabStop = false;
@@ -285,14 +288,33 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // lblX
+            // 
+            this.lblX.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblX.Location = new System.Drawing.Point(120, 689);
+            this.lblX.Name = "lblX";
+            this.lblX.Size = new System.Drawing.Size(133, 23);
+            this.lblX.TabIndex = 1;
+            // 
+            // lblY
+            // 
+            this.lblY.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblY.Location = new System.Drawing.Point(311, 689);
+            this.lblY.Name = "lblY";
+            this.lblY.Size = new System.Drawing.Size(133, 23);
+            this.lblY.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1140, 681);
+            this.ClientSize = new System.Drawing.Size(1140, 731);
+            this.Controls.Add(this.lblY);
+            this.Controls.Add(this.lblX);
             this.Controls.Add(this.pnlLevel);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.pnlLevel.ResumeLayout(false);
             this.pnlPlayer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxPlayer)).EndInit();
@@ -339,6 +361,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel pnlPlayer;
         private System.Windows.Forms.PictureBox pboxPlayer;
+        private System.Windows.Forms.Label lblX;
+        private System.Windows.Forms.Label lblY;
     }
 }
 

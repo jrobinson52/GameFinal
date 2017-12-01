@@ -22,16 +22,17 @@ namespace GameFinal
 
         private void pnlPlayer_Paint(object sender, PaintEventArgs e)
         {
+            /*
             // positions are measured from the top left of the level panel
 
             //initial location of player
-            pnlPlayer.Location = new Point(0, 416); //this is the top left corner of the player panel
+            pnlPlayer.Location = new Point(updatedX, updatedY); //this is the top left corner of the player panel
             bool Won = false;
 
 
 
             //game loop
-            while (!Won) //while we haven't won or died
+            //while (!Won) //while we haven't won or died
             {
 
 
@@ -39,39 +40,57 @@ namespace GameFinal
 
 
                 //am I at the end of level
-                if (updatedX <= 1000)
+                if (updatedX >= 1000)
                     Won = true;
 
             }
-
+            */
         }
 
         public void updatePlayerPosition()
         {
             bool moved = false;
-            Point updatedPoint = new Point(updatedX, updatedY);
+
             while (!moved)
-            {
-                pnlPlayer.Location = updatedPoint;
+            {               
+                lblX.Text = Convert.ToString(updatedX);
+                lblY.Text = Convert.ToString(updatedY);
+                pnlPlayer.Location = new Point(updatedX, updatedY);
+                moved = true;
             }
-                     
+
 
         }
 
         public void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
-            {
-                Point x = new Point(5, 0);
-                // updatedX = updatedX - 5;
-                pnlPlayer.Location = pnlPlayer.Location.X + 5; 
-            }
+            bool Won = false;
 
-            if (e.KeyCode == Keys.Right)
+            while (!Won) //while we haven't won or died
             {
-               // updatedX = updatedX + 5;
-            }
+                updatePlayerPosition();
 
+                //am I at the end of level
+                if (updatedX >= 1000 && updatedX < 0)
+                    Won = true;
+
+
+                if (e.KeyCode == Keys.Left)
+                {
+                    updatedX = updatedX - 5;
+                }
+
+                if (e.KeyCode == Keys.Right)
+                {
+                    updatedX = updatedX + 5;
+                }
+
+                this.Update();
+
+               // pnlPlayer.Location = new Point(updatedX, updatedY); //this is the top left corner of the player panel
+
+
+            }
         }
     }
 }
