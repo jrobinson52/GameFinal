@@ -52,7 +52,7 @@ namespace GameFinal
             bool moved = false;
 
             while (!moved)
-            {               
+            {
                 lblX.Text = Convert.ToString(updatedX);
                 lblY.Text = Convert.ToString(updatedY);
                 pnlPlayer.Location = new Point(updatedX, updatedY);
@@ -66,14 +66,11 @@ namespace GameFinal
         {
             bool Won = false;
 
-            while (!Won) //while we haven't won or died
+            if (!Won) //while we haven't won or died
             {
-                updatePlayerPosition();
-
-                //am I at the end of level
-                if (updatedX >= 1000 && updatedX < 0)
+                //am I at the end of level || beginning
+                if (updatedX >= 1000 || updatedX < 0)
                     Won = true;
-
 
                 if (e.KeyCode == Keys.Left)
                 {
@@ -84,13 +81,11 @@ namespace GameFinal
                 {
                     updatedX = updatedX + 5;
                 }
-
-                this.Update();
-
-               // pnlPlayer.Location = new Point(updatedX, updatedY); //this is the top left corner of the player panel
-
-
             }
+
+            updatePlayerPosition(); //update co-ordinates displayed and location of player
+          //  this.Update(); //redraw the form
+
         }
     }
 }
