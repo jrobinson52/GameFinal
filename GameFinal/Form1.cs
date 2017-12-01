@@ -22,33 +22,6 @@ namespace GameFinal
         bool Won = false;
         
 
-        private void pnlPlayer_Paint(object sender, PaintEventArgs e)
-        {
-            /*
-            // positions are measured from the top left of the level panel
-
-            //initial location of player
-            pnlPlayer.Location = new Point(updatedX, updatedY); //this is the top left corner of the player panel
-            bool Won = false;
-
-
-
-            //game loop
-            //while (!Won) //while we haven't won or died
-            {
-
-
-                updatePlayerPosition();
-
-
-                //am I at the end of level
-                if (updatedX >= 1000)
-                    Won = true;
-
-            }
-            */
-        }
-
         public void updatePlayerPosition()
         {
             bool moved = false;
@@ -68,13 +41,14 @@ namespace GameFinal
         {
             bool atBegin = false;
 
-            if (!Won || !atBegin) //while we haven't won or died
+            if (!Won && !atBegin) //while we haven't won or are at beginning
             {
                 //am I at the end of level
                 if (updatedX >= (1000 - 70)) // -70 for width of player
                     Won = true;
 
-                if (updatedX <= 0) //at left boundary
+                //at left boundary
+                if (updatedX <= 0) 
                     updatedX = updatedX + 5;
                     
 
@@ -87,10 +61,10 @@ namespace GameFinal
                 {
                     updatedX = updatedX + 5;
                 }
-                updatePlayerPosition(); //update co-ordinates displayed and location of player
+
+                updatePlayerPosition(); //update co-ordinates displayed and location of player    
                 
             }
-
 
         }
     }
