@@ -17,8 +17,10 @@ namespace GameFinal
             InitializeComponent();
         }
 
-        int updatedX = 0; //default locations
+        int updatedX = 1; //default locations
         int updatedY = 416;
+        bool Won = false;
+        
 
         private void pnlPlayer_Paint(object sender, PaintEventArgs e)
         {
@@ -64,13 +66,17 @@ namespace GameFinal
 
         public void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            bool Won = false;
+            bool atBegin = false;
 
-            if (!Won) //while we haven't won or died
+            if (!Won || !atBegin) //while we haven't won or died
             {
-                //am I at the end of level || beginning
-                if (updatedX >= 1000 || updatedX < 0)
+                //am I at the end of level
+                if (updatedX >= (1000 - 70)) // -70 for width of player
                     Won = true;
+
+                if (updatedX <= 0) //at left boundary
+                    updatedX = updatedX + 5;
+                    
 
                 if (e.KeyCode == Keys.Left)
                 {
@@ -81,10 +87,10 @@ namespace GameFinal
                 {
                     updatedX = updatedX + 5;
                 }
+                updatePlayerPosition(); //update co-ordinates displayed and location of player
+                
             }
 
-            updatePlayerPosition(); //update co-ordinates displayed and location of player
-          //  this.Update(); //redraw the form
 
         }
     }

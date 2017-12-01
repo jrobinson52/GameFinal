@@ -103,7 +103,7 @@
             this.pnlPlayer.Controls.Add(this.pboxPlayer);
             this.pnlPlayer.Location = new System.Drawing.Point(83, 424);
             this.pnlPlayer.Name = "pnlPlayer";
-            this.pnlPlayer.Size = new System.Drawing.Size(68, 89);
+            this.pnlPlayer.Size = new System.Drawing.Size(70, 90);
             this.pnlPlayer.TabIndex = 1;
             this.pnlPlayer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPlayer_Paint);
             // 
@@ -113,7 +113,7 @@
             this.pboxPlayer.Image = ((System.Drawing.Image)(resources.GetObject("pboxPlayer.Image")));
             this.pboxPlayer.Location = new System.Drawing.Point(0, 0);
             this.pboxPlayer.Name = "pboxPlayer";
-            this.pboxPlayer.Size = new System.Drawing.Size(68, 89);
+            this.pboxPlayer.Size = new System.Drawing.Size(70, 90);
             this.pboxPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxPlayer.TabIndex = 0;
             this.pboxPlayer.TabStop = false;
