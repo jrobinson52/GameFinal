@@ -52,6 +52,7 @@
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.lblWin = new System.Windows.Forms.Label();
             this.pnlLevel.SuspendLayout();
             this.pnlPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxPlayer)).BeginInit();
@@ -79,6 +80,7 @@
             // 
             this.pnlLevel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLevel.BackgroundImage")));
             this.pnlLevel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlLevel.Controls.Add(this.lblWin);
             this.pnlLevel.Controls.Add(this.pictureBox18);
             this.pnlLevel.Controls.Add(this.pictureBox16);
             this.pnlLevel.Controls.Add(this.pictureBox15);
@@ -337,6 +339,17 @@
             this.pictureBox18.TabIndex = 2;
             this.pictureBox18.TabStop = false;
             // 
+            // lblWin
+            // 
+            this.lblWin.AutoSize = true;
+            this.lblWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWin.Location = new System.Drawing.Point(286, 165);
+            this.lblWin.Name = "lblWin";
+            this.lblWin.Size = new System.Drawing.Size(87, 24);
+            this.lblWin.TabIndex = 3;
+            this.lblWin.Text = "You Win!";
+            this.lblWin.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +413,7 @@
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.Label lblWin;
     }
 }
 

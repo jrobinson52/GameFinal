@@ -96,7 +96,12 @@ namespace GameFinal
         {
             if (!isJumping()) //if I'm not jumping
             {
-                if (updatedY < 416)
+                if (updatedX >= 286 && updatedX <= 381) //if we are on obsticle
+                {
+                    if (updatedY < 356)
+                        updatedY = updatedY + 15;
+                }
+                else if (updatedY < 416)
                 {
                     updatedY = updatedY + 15; //start decending
                 }
@@ -123,16 +128,21 @@ namespace GameFinal
                 if (e.KeyCode == Keys.Left)
                 {
                     walkLeft();
-                    //am I at obsticle and not above it
-                    if(updatedX == 286 && updatedY >= 356)
+                    //am I at obsticle and not above it 
+                    if (updatedX == 381 && updatedY >= 356)
                     {
-                        updatedX = updatedX - 5;
+                        updatedX = updatedX + 5; //stop me from moving
                     }
                 }
 
                 if (e.KeyCode == Keys.Right)
                 {
                     walkRight();
+                    //am I at obsticle and not above it
+                    if (updatedX == 286 && updatedY >= 356)
+                    {
+                        updatedX = updatedX - 5; //stop me from moving
+                    }
                 }
 
                 if (e.KeyCode == Keys.Up)
@@ -142,6 +152,11 @@ namespace GameFinal
 
                 updatePlayerPosition(); //update co-ordinates displayed and location of player    
 
+            }
+            
+            if(Won)
+            {
+                lblWin.Visible = true;
             }
 
         }
