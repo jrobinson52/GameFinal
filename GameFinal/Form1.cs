@@ -67,11 +67,10 @@ namespace GameFinal
                 jumping = true;
 
 
-                if (i < 5)
+                while (i < 6)
                 {
                     i++;
                     updatedY = updatedY - 15; //measurements are from top left
-
                     if (i == 5)
                         jumping = false;
                 }
@@ -124,6 +123,11 @@ namespace GameFinal
                 if (e.KeyCode == Keys.Left)
                 {
                     walkLeft();
+                    //am I at obsticle and not above it
+                    if(updatedX == 286 && updatedY >= 356)
+                    {
+                        updatedX = updatedX - 5;
+                    }
                 }
 
                 if (e.KeyCode == Keys.Right)
