@@ -20,7 +20,8 @@ namespace GameFinal
         int updatedX = 1; //default locations
         int updatedY = 416;
         bool Won = false;
-        
+        bool jumping = false;
+        int i = 0;
 
         public void updatePlayerPosition()
         {
@@ -37,33 +38,125 @@ namespace GameFinal
 
         }
 
+        public void walkLeft()
+        {
+            updatedX = updatedX - 5;
+            pboxPlayer.Image = Image.FromFile("../../sprites/walk_l.gif");
+        }
+
+        public void walkRight()
+        {
+            updatedX = updatedX + 5;
+            pboxPlayer.Image = Image.FromFile("../../sprites/walk_r.gif");
+        }
+
+        public void jump()
+        {
+            if (updatedY == 416) //are we on the ground
+            {
+                if (pboxPlayer.Image == Image.FromFile("../../sprites/walk_r.gif")) //are we going right?
+                {
+                    pboxPlayer.Image = Image.FromFile("../../sprites/jump_r.gif");
+                }
+
+                if (pboxPlayer.Image == Image.FromFile("../../sprites/walk_l.gif")) //are we going left?
+                {
+                    pboxPlayer.Image = Image.FromFile("../../sprites/jump_l.gif");
+                }
+
+                jumping = true;
+
+
+                while (i < 6)
+                {
+                    i++;
+                    updatedY = updatedY - 15; //measurements are from top left
+                    if (i == 5)
+                        jumping = false;
+                }
+
+            }
+        }
+
+        public bool isJumping()
+        {
+            if (jumping)
+            {
+                jump();
+                return true;
+            }
+            else
+            {
+                i = 0;
+                return false;
+            }
+        }
+
+        public void isOffGround()
+        {
+            if (!isJumping()) //if I'm not jumping
+            {
+                if (updatedX >= 286 && updatedX <= 381) //if we are on obsticle
+                {
+                    if (updatedY < 356)
+                        updatedY = updatedY + 15;
+                }
+                else if (updatedY < 416)
+                {
+                    updatedY = updatedY + 15; //start decending
+                }
+            }
+        }
+
         public void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            bool atBegin = false;
 
-            if (!Won && !atBegin) //while we haven't won or are at beginning
+
+            if (!Won) //while we haven't won
             {
                 //am I at the end of level
-                if (updatedX >= (1000 - 70)) // -70 for width of player
+                if (updatedX >= (610 - 70)) // -70 for width of player
                     Won = true;
 
                 //at left boundary
-                if (updatedX <= 0) 
+                if (updatedX <= 0)
                     updatedX = updatedX + 5;
-                    
+
+                isOffGround();
+
 
                 if (e.KeyCode == Keys.Left)
                 {
-                    updatedX = updatedX - 5;
+                    walkLeft();
+                    //am I at obsticle and not above it 
+                    if (updatedX == 381 && updatedY >= 356)
+                    {
+                        updatedX = updatedX + 5; //stop me from moving
+                    }
                 }
 
                 if (e.KeyCode == Keys.Right)
                 {
-                    updatedX = updatedX + 5;
+                    walkRight();
+                    //am I at obsticle and not above it
+                    if (updatedX == 286 && updatedY >= 356)
+                    {
+                        updatedX = updatedX - 5; //stop me from moving
+                    }
+                }
+
+                if (e.KeyCode == Keys.Up)
+                {
+                    jump();
                 }
 
                 updatePlayerPosition(); //update co-ordinates displayed and location of player    
-                
+
+            }
+            
+            if(Won)
+            {
+                lblWin.Visible = true;
             }
 
         }
